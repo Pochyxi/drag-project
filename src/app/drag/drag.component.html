@@ -1,0 +1,75 @@
+<div class="kanban-board">
+
+<!--  SEZIONE DA FARE-->
+  <div
+    class="kanban-column todo"
+    (drop)="onDrop($event, TO_DO)"
+    (dragover)="onDragOver($event, TO_DO)"
+    (dragleave)="onDragLeave($event)"
+  >
+<!--    TITOLO-->
+    <div class="column-header">Da fare</div>
+<!--    SINGOLA CARTA-->
+    <div
+      draggable="true"
+      class="card"
+      *ngFor="let item of filterTickets(TO_DO)"
+      (dragstart)="onDragStart(item)"
+    >
+<!--      ID TICKET-->
+      {{ item.ticketId }}
+      <br>
+<!--      NOME TICKET-->
+      {{ item.ticketName }}
+    </div>
+  </div>
+
+<!--  SEZIONE IN CORSO-->
+  <div
+    class="kanban-column in-progress"
+    (drop)="onDrop($event, IN_PROGRESS)"
+    (dragover)="onDragOver($event, IN_PROGRESS)"
+    (dragleave)="onDragLeave($event)"
+    (mouseover)="overColumn = IN_PROGRESS"
+  >
+    <div class="column-header">In corso</div>
+<!--    SINGOLA CARTA-->
+    <div
+      draggable="true"
+      class="card"
+      *ngFor="let item of filterTickets(IN_PROGRESS)"
+      (dragstart)="onDragStart(item)"
+      id="{{ item.ticketId }}"
+    >
+<!--      ID TICKET-->
+      {{ item.ticketId }}
+      <br>
+<!--      NOME TICKET-->
+      {{ item.ticketName }}
+    </div>
+  </div>
+
+<!--  SEZIONE COMPLETATO-->
+  <div
+    class="kanban-column done"
+    (drop)="onDrop($event, DONE)"
+    (dragover)="onDragOver($event, DONE)"
+    (dragleave)="onDragLeave($event)"
+  >
+<!--    TITOLO-->
+    <div class="column-header">Completato</div>
+<!--    SINGOLA CARTA-->
+    <div
+      draggable="true"
+      class="card"
+      *ngFor="let item of filterTickets(DONE)"
+      (dragstart)="onDragStart(item)"
+    >
+<!--      ID TICKET-->
+      {{ item.ticketId }}
+      <br>
+<!--      NOME TICKET-->
+      {{ item.ticketName }}
+    </div>
+  </div>
+</div>
