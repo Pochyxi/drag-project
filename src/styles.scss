@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: "Courier New", monospace;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 50px;
+}

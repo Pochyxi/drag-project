@@ -1,20 +1,24 @@
-.kanban-board {
+.tabella_kanban {
   display: flex;
   justify-content: space-between;
   padding: 20px;
 
-  .kanban-column {
+  .colonna_kanban {
     flex-basis: 30%;
     background-color: #f0f0f0;
     padding: 10px;
     border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 
-    .column-header {
+    .nome_colonna {
+      text-align: center;
       font-weight: bold;
       margin-bottom: 15px;
     }
-    .card {
-      background-color: white;
+
+    .carta {
+      background-color: cyan;
+      font-weight: bold;
       padding: 10px;
       margin-bottom: 10px;
       border-radius: 10px;
@@ -24,28 +28,43 @@
 
       &:hover {
         box-shadow: 0 6px 12px rgba(0,0,0,0.2);
-        transform: translateY(-2px);
+        transform: scale3d(1.02, 1.02, 1.02);
         background-color: rgba(0,0,0,0.05);
+      }
+
+      &:active {
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        transform: scale3d(1.08, 1.08, 1.08);
+        background-color: greenyellow;
       }
     }
   }
-  // Classe per l'oscuramento durante il drag sopra altre sezioni
-  .todo {
+
+  // Colori delle carte
+  .da_completare {
     background-color: #e3fcef;
     border-bottom: 5px solid #e3fcef;
   }
-  .in-progress {
+
+  .in_esecuzione {
     background-color: #fff3cd;
     border-bottom: 5px solid #fff3cd;
   }
-  .done {
+
+  .completato {
     background-color: #d1e7dd;
     border-bottom: 5px solid #d1e7dd;
   }
 
-  // oscuramento durante il drag
-  .card-drag-over {
-    border-bottom: 5px dashed greenyellow;
+  // Effetto di passaggio della carta da una colonna all'altra
+  // qualcosa di elaborato con animazioni
+  .la_carta_sta_passando {
+    background-color: #f0f0f0;
+    border-bottom: 5px solid #f0f0f0;
+
+    .carta {
+      background-color: #f0f0f0;
+    }
   }
 }
 

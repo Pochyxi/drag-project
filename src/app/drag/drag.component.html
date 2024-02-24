@@ -1,75 +1,90 @@
-<div class="kanban-board">
+<!--****************************************************-->
+<!--*************TABELLA KANBAN BY DEVELOPEZ************-->
+<!--****************************************************-->
+<div class="tabella_kanban">
 
-<!--  SEZIONE DA FARE-->
+<!--*****************************-->
+<!--*****  COLONNA DA COMPLETARE  *****-->
+<!--*****************************-->
   <div
-    class="kanban-column todo"
-    (drop)="onDrop($event, TO_DO)"
-    (dragover)="onDragOver($event, TO_DO)"
+    class="colonna_kanban da_completare"
+    (drop)="onDrop($event, DA_COMPLETARE)"
+    (dragover)="onDragOver($event, DA_COMPLETARE)"
     (dragleave)="onDragLeave($event)"
   >
-<!--    TITOLO-->
-    <div class="column-header">Da fare</div>
-<!--    SINGOLA CARTA-->
+<!--      TITOLO-->
+    <div class="nome_colonna">{{ DA_COMPLETARE }}</div>
+<!--      CARTA-->
     <div
       draggable="true"
-      class="card"
-      *ngFor="let item of filterTickets(TO_DO)"
-      (dragstart)="onDragStart(item)"
+      class="carta"
+      *ngFor="let carta of filtraCartePerColonna(DA_COMPLETARE)"
+      (dragstart)="onDragStart(carta)"
     >
-<!--      ID TICKET-->
-      {{ item.ticketId }}
+<!--      ID CARTA-->
+      {{ carta.idCarta }}
       <br>
-<!--      NOME TICKET-->
-      {{ item.ticketName }}
+<!--      BRRRRRRRRRRRRRRRR-->
+      <br>
+<!--      NOME TASK-->
+      {{ carta.nomeTask }}
     </div>
   </div>
 
-<!--  SEZIONE IN CORSO-->
+<!--******************************-->
+<!--*****  COLONNA IN ESECUZIONE  *****-->
+<!--******************************-->
   <div
-    class="kanban-column in-progress"
-    (drop)="onDrop($event, IN_PROGRESS)"
-    (dragover)="onDragOver($event, IN_PROGRESS)"
+    class="colonna_kanban in_esecuzione"
+    (drop)="onDrop($event, IN_ESECUZIONE)"
+    (dragover)="onDragOver($event, IN_ESECUZIONE)"
     (dragleave)="onDragLeave($event)"
-    (mouseover)="overColumn = IN_PROGRESS"
+    (mouseover)="colonnaDragOver = IN_ESECUZIONE"
   >
-    <div class="column-header">In corso</div>
-<!--    SINGOLA CARTA-->
+<!--      TITOLO-->
+    <div class="nome_colonna">{{ IN_ESECUZIONE }}</div>
+<!--      CARTA-->
     <div
       draggable="true"
-      class="card"
-      *ngFor="let item of filterTickets(IN_PROGRESS)"
-      (dragstart)="onDragStart(item)"
-      id="{{ item.ticketId }}"
+      class="carta"
+      *ngFor="let carta of filtraCartePerColonna(IN_ESECUZIONE)"
+      (dragstart)="onDragStart(carta)"
+      id="{{ carta.idCarta }}"
     >
-<!--      ID TICKET-->
-      {{ item.ticketId }}
+<!--      ID CARTA-->
+      {{ carta.idCarta }}
       <br>
-<!--      NOME TICKET-->
-      {{ item.ticketName }}
+<!--      BRRRRRRRRRRRRRRRR-->
+      <br>
+<!--      NOME TASK-->
+      {{ carta.nomeTask }}
     </div>
   </div>
 
-<!--  SEZIONE COMPLETATO-->
+<!--********************************-->
+<!--*****  COLONNA COMPLETATO  *****-->
   <div
-    class="kanban-column done"
-    (drop)="onDrop($event, DONE)"
-    (dragover)="onDragOver($event, DONE)"
+    class="colonna_kanban completato"
+    (drop)="onDrop($event, COMPLETATO)"
+    (dragover)="onDragOver($event, COMPLETATO)"
     (dragleave)="onDragLeave($event)"
   >
-<!--    TITOLO-->
-    <div class="column-header">Completato</div>
-<!--    SINGOLA CARTA-->
+<!--      TITOLO-->
+    <div class="nome_colonna">{{ COMPLETATO }}</div>
+<!--      CARTA-->
     <div
       draggable="true"
-      class="card"
-      *ngFor="let item of filterTickets(DONE)"
-      (dragstart)="onDragStart(item)"
+      class="carta"
+      *ngFor="let carta of filtraCartePerColonna(COMPLETATO)"
+      (dragstart)="onDragStart(carta)"
     >
-<!--      ID TICKET-->
-      {{ item.ticketId }}
+<!--      ID CARTA-->
+      {{ carta.idCarta }}
       <br>
-<!--      NOME TICKET-->
-      {{ item.ticketName }}
+<!--      BRRRRRRRRRRRRRRRR-->
+      <br>
+<!--      NOME CARTA-->
+      {{ carta.nomeTask }}
     </div>
   </div>
 </div>
