@@ -1,0 +1,47 @@
+<!--****************************************************-->
+<!--*************TABELLA KANBAN BY DEVELOPEZ************-->
+<!--****************************************************-->
+<div class="tabella_kanban">
+
+<!--*****************************-->
+<!--*****  COLONNA DA COMPLETARE  *****-->
+<!--*****************************-->
+  <app-colonna
+    [titoloColonna]="DA_COMPLETARE"
+    [classeColonna]="'colonna_kanban da_completare'"
+    [arrayDiCarte]="filtraCartePerColonna(DA_COMPLETARE)"
+    (onDrop)="onDrop($event[0], $event[1])"
+    (onDragOver)="onDragOver($event[0], $event[1])"
+    (onDragLeave)="onDragLeave($event)"
+    (onDragStart)="onDragStart($event)"
+  >
+  </app-colonna>
+
+<!--******************************-->
+<!--*****  COLONNA IN ESECUZIONE  *****-->
+<!--******************************-->
+  <app-colonna
+    [titoloColonna]="IN_ESECUZIONE"
+    [classeColonna]="'colonna_kanban in_esecuzione'"
+    [arrayDiCarte]="filtraCartePerColonna(IN_ESECUZIONE)"
+    (onDrop)="onDrop($event[0], $event[1])"
+    (onDragOver)="onDragOver($event[0], $event[1])"
+    (onDragLeave)="onDragLeave($event)"
+    (onDragStart)="onDragStart($event)"
+  >
+  </app-colonna>
+
+<!--********************************-->
+<!--*****  COLONNA COMPLETATO  *****-->
+<app-colonna
+  [titoloColonna]="COMPLETATO"
+  [classeColonna]="'colonna_kanban completato'"
+  [arrayDiCarte]="filtraCartePerColonna(COMPLETATO)"
+  (onDrop)="onDrop($event[0], $event[1])"
+  (onDragOver)="onDragOver($event[0], $event[1])"
+  (onDragLeave)="onDragLeave($event)"
+  (onDragStart)="onDragStart($event)"
+>
+</app-colonna>
+</div>
+```

@@ -1,0 +1,17 @@
+<!--*****************************-->
+<!--*****  COLONNA DA COMPLETARE  *****-->
+<!--*****************************-->
+<div
+  [class]="classeColonna"
+  (drop)="onDropEmit($event, titoloColonna)"
+  (dragover)="onDragOverEmit($event, titoloColonna)"
+  (dragleave)="onDragLeaveEmit($event)"
+>
+  <!--      TITOLO-->
+  <div class="nome_colonna">{{ titoloColonna }}</div>
+  <!--      CARTA-->
+  <app-carte
+    [arrayDiCarte]="arrayDiCarte"
+    (onDragStart)="onDragStartEmit($event)"
+  ></app-carte>
+</div>

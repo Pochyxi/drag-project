@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
-import html2canvas from "html2canvas";
 
-class Carta {
+export class Carta {
   idCarta: string;
   nomeTask: string;
   colonnaDiAppartenenza: string;
@@ -18,11 +17,11 @@ class Carta {
 }
 
 @Component({
-  selector: 'app-drag',
-  templateUrl: './drag.component.html',
-  styleUrls: ['./drag.component.scss']
+  selector: 'app-kanban_board',
+  templateUrl: './kanban-board.component.html',
+  styleUrls: ['./kanban-board.component.scss']
 })
-export class DragComponent {
+export class KanbanBoard {
   // Costanti per le colonne
   COMPLETATO = 'COMPLETATO';
   IN_ESECUZIONE = 'IN ESECUZIONE';

@@ -1,0 +1,14 @@
+<div
+  draggable="true"
+  class="carta"
+  *ngFor="let carta of arrayDiCarte"
+  (dragstart)="onDragStartEmit(carta)"
+>
+  <!--      ID CARTA-->
+  {{ carta.idCarta }}
+  <br>
+  <!--      BRRRRRRRRRRRRRRRR-->
+  <br>
+  <!--      NOME TASK-->
+  {{ carta.nomeTask }}
+</div>
